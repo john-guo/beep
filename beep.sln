@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beep", "beep\beep.csproj", "{A055169E-11F6-4625-A393-275E52E4BE11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMS", "BMS\BMS.csproj", "{F9C4B481-C513-4716-9852-234FA84117FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A055169E-11F6-4625-A393-275E52E4BE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A055169E-11F6-4625-A393-275E52E4BE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A055169E-11F6-4625-A393-275E52E4BE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A055169E-11F6-4625-A393-275E52E4BE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C4B481-C513-4716-9852-234FA84117FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C4B481-C513-4716-9852-234FA84117FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C4B481-C513-4716-9852-234FA84117FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C4B481-C513-4716-9852-234FA84117FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
