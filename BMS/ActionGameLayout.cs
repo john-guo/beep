@@ -248,7 +248,28 @@ namespace BMS
 
 
             ActionItem item;
-            if (!autoPlay && FirstHeight >= hitThreshold)
+            var ishit = false;
+            //if (!autoPlay && FirstHeight >= hitThreshold)
+            if (FirstHeight >= hitThreshold)
+            {
+                item = getCurrentAction();
+                foreach (var pair in selector(item))
+                {
+                    if (pair.Value == ActionPlayer.emptyBeat)
+                        continue;
+
+                    var action = Convert.ToInt32(pair.Key);
+                    var hitAct = action - 1;
+
+                    if (hits[hitAct] != ACTION_NONE)
+                    {
+                        ishit = true;
+                        break;
+                    }
+                }
+            }
+
+            if (ishit)
             {
                 item = getAction(player.currentAction + 1, i => player.Actions.Total - 1);
             }
