@@ -1,10 +1,13 @@
 ﻿using BMS;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -223,6 +226,41 @@ namespace beep
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             keys.Remove(e.KeyCode);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var reader1 = new AudioFileReader("++++#2.wav");
+            //var sample = new DuplicateSampleProvider(reader1.ToSampleProvider());
+            var sample = new testSampleProvider(reader1);
+            sample.DuplicatePerSample = 8;
+            //var wav = new WaveOut();
+            //wav.Init(sample);
+            //wav.Play();
+
+            var wp = new SampleToWaveProvider(sample);
+            byte[] buffer = new byte[wp.WaveFormat.AverageBytesPerSecond * 4 * sample.DuplicatePerSample];
+            MemoryStream ms = new MemoryStream();
+            do
+            {
+                var c = wp.Read(buffer, 0, buffer.Length);
+                if (c == 0)
+                    break;
+                ms.Write(buffer, 0, c);
+            } while (true);
+            ms.Flush();
+
+            waveViewer1.WaveStream = new RawSourceWaveStream(ms, wp.WaveFormat);
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var reader1 = new AudioFileReader("++++#2.wav");
+            //var wav = new WaveOut();
+            //wav.Init(reader1);
+            //wav.Play();
+            waveViewer1.WaveStream = reader1;
         }
     }
 }
